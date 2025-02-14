@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentification",
     "blogpost",
-    "followup",    
-]
+    "followup",
+    ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "fr-FR"
+LANGUAGE_CODE = "fr-fr"
 
 TIME_ZONE = "UTC"
 
