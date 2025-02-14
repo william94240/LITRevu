@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITReview Home</title>
+</head>
+<body style="background-color:powderblue">
+    <h1>Bienvenue Sur <em>LITReview</em>, le site web qui vous permet de solliciter ou de publier des critiques sur des livres ou des articles.</h1>
+    <hr>
+    <br><br><br><br><br><br><br><br>
+    <div>
+        <button>
+            <a href="{% url 'auth:signup' %}"><h2>Inscrivez-vous maintenant</h2></a>
+        </button>
+        <p>OU</p>   
+        <button>
+            <a href="{% url 'auth:login' %}"><h2>Connectez-vous</h2></a>
+        </button>    
+    </div> 
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ ticket.title }}</title>{% endblock %}
+
+{% block content %}
+    <hr>
+    <br>
+    <nav>
+        <a href="{% url 'flux:ticket-list' %}">Retour au flux</a>
+        <span>|</span>
+        <a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}">Ajouter un commentaire sur ce livre ou cet article</a>
+        <span>|</span>
+        <a href="{% url 'flux:ticket-update' slug=ticket.slug %}">Modifier le ticket</a>
+        <span>|</span>       
+        <a href="{% url 'flux:ticket-delete' slug=ticket.slug %}">Supprimer le ticket</a>                   
+        <span>|</span>
+        <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Afficher les critiques sur ce livre/article</a>            
+    </nav>
+    <br> 
+    <h1>{{ ticket.title }}</h1>    
+    <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width='200'>    
+    <p>{{ ticket.description }}</p>
+
+    <h2>Les critiques dédiées à "{{ ticket.title }}" :</h2>
+    {% for review in ticket.reviews.all %}
+        <h3> {{ forloop.counter }} - {{ review.headline }}</h3>
+        <p> {{ review.body }}</p>
+    {% endfor %}
+
+{% endblock %}

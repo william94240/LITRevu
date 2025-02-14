@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{% block title %}<title>Supprimer la critique</title>{% endblock %}
+
+{% block content %}
+    <h1>Suppression de la critique:  <em>{{ review.headline }}</em></h1>
+
+    <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}">Retour aux critiques</a>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <p>Voulez-vous supprimer la critique "{{ review.headline }}"?</p>
+       
+        <button type="submit">Supprimer</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte</title>
+</head>
+<body>
+<h1>LITReview</h1>
+<br>
+<hr>
+<h1>Inscrivez-vous</h1>
+
+<form method="POST">
+    {% csrf_token %}    
+  
+    {{ form.as_p }}
+
+    {% for message in errors.values %}
+    <h3 style="color:red">
+        {{ message }}
+    </h3>
+    {% endfor %}
+    
+    <input type="submit" value="S'inscrire"> 
+</form>  
+    
+</body>
+</html>

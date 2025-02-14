@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Les Critiques</title>{% endblock %}
+
+{% block content %}
+    <h1>Les Critiques sur "<em>{{ ticket.title }}/<em>"</h1>
+    <hr>
+
+    <h3><a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}">Ajouter une critique</a></h3>    
+    
+    <ul>
+        {% for review in reviews %}
+            <li>              
+                <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}">
+                    <h3>
+                        {{ review.headline }} - ({{ forloop.counter }}) -
+                        <a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}">
+                            [Modifier]
+                        </a>
+                        <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}">
+                            [Supprimer]
+                        </a>
+                    </h3>
+                </a>
+            </li>
+            <p>{{ review.get_rating_display }}</p>
+            <p>{{ review.body|truncatewords:30 }}</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

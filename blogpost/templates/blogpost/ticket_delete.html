@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{% block title %}<title>Supprimer un ticket</title>{% endblock %}
+
+{% block content %}
+
+    <a href="{% url 'flux:ticket-list' %}">Retour à la liste de tickets</a>
+    
+    <form method="POST">        
+        <p>Voulez-vous supprimer le ticket "{{ ticket.title }}"?</p>
+        
+        {% csrf_token %}
+
+        <button type="submit">Supprimer</button>
+    </form>
+
+{% endblock %}

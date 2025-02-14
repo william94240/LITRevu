@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block title %}{% endblock %}
+</head>
+<body >
+    <header>
+        <div>
+            
+                <h1>LITReview | Utilisateur connecté: <em>{{ request.user}}</em> </h1>
+                <hr>
+            <nav>
+                <span><a href="{% url 'flux:ticket-list' %}">Flux</a></span>               
+                <span>|</span>
+                <span><a href="">Posts</a></span>
+                <span>|</span>
+                <span><a href="{% url 'follow:follow' %}">Abonnements</a></span>               
+                <span>|</span>
+                <span><a href="{% url 'auth:logout' %}">Se déconnecter</a></span>               
+            </nav>        
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+    
+    <hr>
+    <br>
+    <form action="{% url 'auth:logout' %}" method="POST">
+        {% csrf_token %}              
+        <input type="submit" value="Déconnection">
+    </form>
+    
+
+<body>
+</html>

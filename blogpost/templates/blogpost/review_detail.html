@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}<title>{{ review.headline }}</title>{% endblock %}
+
+{% block content %}
+    <hr>
+    <br>
+    <nav>
+        <a href="{% url 'flux:ticket-review-list' ticket_slug=review.ticket.slug %}">Retour aux critiques du livre/article</a>
+        <span>|</span>   
+        <a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}">Modifier la critique</a>
+        <span>|</span>
+        <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}">Supprimer la critique</a> 
+    </nav>
+    <br> 
+    <h1>{{ review.headline }}</h1>
+    <p>{{ review.get_rating_display }}</p> 
+    <p>{{ review.body }}</p>
+ 
+{% endblock %}

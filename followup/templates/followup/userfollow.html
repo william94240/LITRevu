@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Abonnements</title>{% endblock %}
+
+{% block content %}
+    <h1>Abonnements</h1>
+    <hr>
+
+    
+    <form method="post">
+        <h3>Suivre l'utilisateur : </h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Suivre">
+    </form>
+    <br>
+
+    <h3>Abonnements</h3>
+    <ul>
+        {%  for user_follow in followed_users %}
+        <li>{{ user_follow.followed_user }} | <a href="{% url 'follow:unfollow' user_follow.pk %}">Supprimer le suivi avec {{ user_follow.followed_user }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <br>
+    
+    <h3>Abonnés</h3>        
+    <ul>
+        {%  for user_follow in users_following %}
+        <li>{{ user_follow.user }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}

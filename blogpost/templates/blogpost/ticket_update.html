@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Modifier un ticket</h1>
+
+    <a href="{% url 'flux:ticket-list' %}">Retour au sommaire</a>
+    <br><br>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Modifier le ticket</button>
+        
+    </form>
+
+{% endblock %}

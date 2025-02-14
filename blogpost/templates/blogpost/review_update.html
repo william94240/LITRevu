@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Modifier la Critique <em>{{review.headline}}</em></h1>
+
+    <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}">Retour à la critique sans modification</a>
+    <br><br>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Modifier la critique</button>
+        
+    </form>
+
+{% endblock %}
