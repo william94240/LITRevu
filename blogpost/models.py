@@ -4,12 +4,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
 from django.utils.text import slugify
 from autoslug import AutoSlugField
-from django.shortcuts import redirect
-from PIL import Image
-from django import forms
+from django.utils.text import slugify
 
-
-# Create your models here.
 
 class Ticket(models.Model):
     """
@@ -17,6 +13,7 @@ class Ticket(models.Model):
 
     Attributes:
     title: CharField
+    slug: AutoSlugField
     description: TextField
     user: ForeignKey
     image: ImageField
@@ -27,13 +24,13 @@ class Ticket(models.Model):
         displaying its title. 
     """
     title = models.CharField(max_length=128, verbose_name="Nom du livre ou de l'article")
-    slug = AutoSlugField(unique=True, populate_from="title", max_length=256, blank=True, null=True)
+    slug = AutoSlugField(unique=True, populate_from="title", max_length=256)
     description = models.TextField(
         max_length=2048, blank=True, verbose_name="Description du livre ou de l'article")
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="tikets",
+        related_name="tickets",
         verbose_name="Utilisateur",
         null=True
         )
@@ -48,6 +45,8 @@ class Ticket(models.Model):
         default="ticket_images/django.png",        
         )
     
+    content_type = "TICKET"
+    
 
     class Meta:
         verbose_name = "Livre ou Article"        
@@ -55,18 +54,11 @@ class Ticket(models.Model):
 
     def __str__(self):
         """Return the title of the Tiket."""
+        slugify(self.title)
         return self.title
-    
-    def save(self, *args, **kwargs):
-        """Override the save original method to automatically generate a slug"""
-        if not self.slug:
-            self.slug = slugify(self.title)
 
-        super().save(*args, **kwargs)
-    
     def get_absolute_url(self):
-        """Return the absolute url of the ticket"""
-        # return reverse("ticket", kwargs={"pk": self.pk})    
+        """Return the absolute url of the ticket"""            
         return reverse("flux:ticket-detail", kwargs={"slug": self.slug})
         
 
@@ -82,6 +74,7 @@ class Review(models.Model):
         rating: PositiveSmallIntegerField (0 to 5).
         user: ForeignKey
         headline: CharField
+        slug: AutoSlugField
         body: TextField
         time_created: DateTimeField
 
@@ -107,9 +100,11 @@ class Review(models.Model):
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews")
     headline = models.CharField(max_length=128, verbose_name="En-tête de la critique")    
-    slug = AutoSlugField(populate_from="headline", unique=True, max_length=256, blank=True, null=True)
+    slug = AutoSlugField(populate_from="headline", unique=True, max_length=256)
     body = models.TextField(max_length=8192, blank=True, verbose_name="Commentaires ")
     time_created =models.DateTimeField(auto_now_add=True, verbose_name="Date de publication de la critique")
+
+    content_type = "REVIEW"
 
     class Meta:
         verbose_name = "Critique"
@@ -118,16 +113,9 @@ class Review(models.Model):
 
     def __str__(self):
         """Return a string representation of the review."""
-        return f'Critique "{self.headline}" pour "{self.ticket.title}"'
-    
-    def save(self, *args, **kwargs):
-        """Override the save method to automatically generate a slug"""
-        if not self.slug:
-            # self.slug = slugify(self.headline + "-" + self.ticket.title)
-            self.slug = slugify(self.headline)
-
-        super().save(*args, **kwargs)
+        return f'Critique "{self.headline}" pour "{self.ticket.title}"'  
     
     def get_absolute_url(self):
         """Return the absolute url of the review"""
         return reverse("flux:ticket-review-detail", kwargs={"ticket_slug": self.ticket.slug, "slug": self.slug})
+ 

@@ -2,9 +2,7 @@
 
 {% block content %}
     <h1>Créer une critique sur "<em>{{ ticket.title }}</em>"</h1>   
-    <br>{% comment %}
-    <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Retour aux critiques du Livre/Article</a>
-    {% endcomment %}
+    <br>
     <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Retour aux critiques du Livre/Article</a>      
     <br><br>
         

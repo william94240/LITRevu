@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}<title>Flux</title>{% endblock %}
+{% block title %}<title>Les Livres ou articles</title>{% endblock %}
 
 {% block content %}
-    <h1>Flux</h1>
+    <h1>Les Billets</h1>
     <hr>
         <button>
             <h3><a href="{% url 'flux:ticket-create' %}" style="color: rgb(255, 0, 255);">Demander une critique pour un livre ou un article</a></h3>
         </button>
             
         <button>
-            <h3><a href="{% url 'flux:ticket-create-aio' %}" style="color: rgb(255, 0, 255);">Commenter un livre/article</a></h3>
+            <h3><a href="{% url 'flux:ticket-create-aio' %}" style="color: rgb(255, 0, 255);">Commenter un livre ou un article</a></h3>
         </button>  
     <ul>  
     {% for ticket in tickets %}
@@ -24,10 +24,11 @@
                 <a href="{% url 'flux:ticket-delete' slug=ticket.slug %}">
                     [Supprimer]
                 </a>
-            </h3>
+            </h3>        
+        <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width="75px">
         </a>
-        <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width="200px">
         <p>{{ ticket.description|truncatewords:30 }}</p>
+        
     </li>     
     {% endfor %}
     </ul>

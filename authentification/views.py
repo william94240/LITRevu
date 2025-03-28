@@ -1,36 +1,32 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.contrib.auth import logout
 from django.conf import settings
+from django.contrib.auth import authenticate, login, logout
+from django.views import View
 
-from .forms import CustomUserCreationForm
+from .forms import SignupForm
 
 
+class SignupView(View):
+    """View for signup."""    
+    template_name = "authentification/signup.html"
+    form_class = SignupForm
 
-def signup_view(request):
-    context = {}
-    if request.method == "POST":
-        form =  CustomUserCreationForm(request.POST)
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {"form": form})
+    
+    def post(self, request):        
+        form = self.form_class(request.POST)
         if form.is_valid():
-            form.save()
-            #La redirection du LOGIN se fait à l'aide  
-            # de la variable LOGIN_REDIRECT_URL = "home" 
-            # dans le fichier SETTINGS.            
+            user = form.save()
+            login(request, user)
             return redirect(settings.LOGIN_REDIRECT_URL)
-        else:
-            context["errors"] = form.errors
+        return render(request, self.template_name, {"form": form})
 
-    form = CustomUserCreationForm()
-    context["form"] = form
 
-    return render(request, "authentification/signup.html", context=context)
 
 def logout_view(request):
+    """Logout view."""
     logout(request)
     return redirect(settings.LOGOUT_REDIRECT_URL)
-
-def profile(request):
-    return HttpResponse(f"Bienvenue {request.user.username}!")
-
-

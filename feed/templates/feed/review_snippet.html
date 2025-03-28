@@ -1,0 +1,14 @@
+<a href="{% url 'flux:ticket-review-detail' ticket_slug=post.ticket.slug slug=post.slug %}">
+    <h3>
+        {{ post.headline }} - ({{ forloop.counter }}) -
+        <a href="{% url 'flux:ticket-review-update' ticket_slug=post.ticket.slug slug=post.slug %}">
+            [Modifier]
+        </a>
+        <a href="{% url 'flux:ticket-review-delete' ticket_slug=post.ticket.slug slug=post.slug %}">
+            [Supprimer]
+        </a>
+    </h3>
+</a>         
+<p>{{ post.get_rating_display }}</p>
+<p>{{ post.body|truncatewords:30 }}</p>
+

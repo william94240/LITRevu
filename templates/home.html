@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <title>LITReview Home</title>
 </head>
-<body style="background-color:powderblue">
-    <h1>Bienvenue Sur <em>LITReview</em>, le site web qui vous permet de solliciter ou de publier des critiques sur des livres ou des articles.</h1>
-    <hr>
-    <br><br><br><br><br><br><br><br>
-    <div>
-        <button>
-            <a href="{% url 'auth:signup' %}"><h2>Inscrivez-vous maintenant</h2></a>
-        </button>
-        <p>OU</p>   
-        <button>
-            <a href="{% url 'auth:login' %}"><h2>Connectez-vous</h2></a>
-        </button>    
-    </div> 
+<body id="home">   
+        <header id="home-header">
+            <h1 id="home-title">Bienvenue Sur <em>LITReview</em></h1>
+            <h2>Ce site web permet de solliciter ou de publier des critiques sur des livres ou des articles
+                en toute simplicité.<br> Vous pouvez également consulter les critiques des autres utilisateurs.</h2>         
+        </header>
 
+        <div id="home-connect">
+            <h3>Vous êtes un passionné de lecture et vous souhaitez partager vos avis sur des livres ou des articles ?
+            <br>Connectez-vous pour accéder à toutes les fonctionnalités de notre site.</h3>            
+                <a href="{% url 'auth:login' %}"><h2>Connectez-vous ou inscrivez-vous</h2></a>              
+        </div>
 </body>
 </html>

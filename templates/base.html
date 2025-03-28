@@ -4,37 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     
     {% block title %}{% endblock %}
 </head>
 <body >
+    {% if user.is_authenticated %}
     <header>
-        <div>
-            
-                <h1>LITReview | Utilisateur connecté: <em>{{ request.user}}</em> </h1>
-                <hr>
+        <div >                                
+            <h1 id="site-title">LitReview</h1>
+            <h2 id="connected-user">Utilisateur connecté: &nbsp; <em>{{ request.user}}</em> </h2>
+                   
             <nav>
-                <span><a href="{% url 'flux:ticket-list' %}">Flux</a></span>               
-                <span>|</span>
-                <span><a href="">Posts</a></span>
-                <span>|</span>
-                <span><a href="{% url 'follow:follow' %}">Abonnements</a></span>               
-                <span>|</span>
-                <span><a href="{% url 'auth:logout' %}">Se déconnecter</a></span>               
-            </nav>        
+                <ul id="nav-elements">
+                    <li><a href="{% url 'feed:feed' %}" class="nav-element">Flux</a></li>               
+                    
+                    <li><a href="{% url 'feed:my-feed' %}" class="nav-element">Posts</a></li>
+                    
+                    <li><a href="{% url 'follow:follow' %}" class="nav-element">Abonnements</a></li>              
+                                                   
+                    <li><a href="{% url 'auth:logout_fct' %}" class="nav-element">Se déconnecter</a></li>
+                </ul>               
+            </nav>               
         </div>
     </header>
-
-    {% block content %}{% endblock %}
-    
-    <hr>
-    <br>
-    <form action="{% url 'auth:logout' %}" method="POST">
-        {% csrf_token %}              
-        <input type="submit" value="Déconnection">
-    </form>
-    
-
+    <main>
+        {% block content %}{% endblock %}
+        
+        <hr>
+        <br>
+    </main>
+  
+    <footer>  
+        <form action="{% url 'auth:logout' %}" method="POST">
+            {% csrf_token %}              
+            <input type="submit" value="Déconnection" id="footer-logout">
+        </form>
+    </footer>
+    {% else %}
+    <p><a href="{% url 'auth:login' %}">Se connecter</a></p>
+    <p><a href="{% url 'auth:signup' %}">S'inscrire</a></p>       
+    {% endif %}
 <body>
 </html>

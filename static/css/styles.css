@@ -1,0 +1,164 @@
+/* GLOBAL STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    /* background-color: url("images/LITrevu_banner.png") no-repeat center; */
+    background-size: cover;
+}
+
+body {
+    height: 100%;
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: cover;
+}
+
+
+/* body {
+    border: 2px solid black;
+    padding: 10px;
+    background: url('images/LITrevu_banner.png') no-repeat;
+    background-size: cover;
+}
+
+#footer-logout {
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: orangered;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 0px 0px 50%;
+}
+
+.flux-title {
+    font-size: 1.5em;
+    width: 250px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 50px;
+    border: 2px groove cyan;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px violet;
+} */
+
+
+/* HOME */
+
+/* #home {
+    height: 200%;
+    background: url('images/LITrevu_banner.png')  no-repeat center;
+    background-size: cover;
+    color: rgb(146, 75, 125);
+    clear: both;
+}
+
+#home-title
+{
+    font-size: 3em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 50px;
+    border: 2px groove cyan;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+#home-header h2 {
+    text-align: center;
+}
+
+#home-connect
+{
+    margin-top: 500px;
+    height: 400px;
+    color: rgb(146, 75, 125);
+    text-align: center;
+}
+
+#home-connect a {
+    float: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: orangered;
+    text-transform: uppercase;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 40px 0px 0px 30%;
+} */
+
+/* BASE */
+
+
+/* #site-title
+{
+    font-size: 4em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    border: 2px groove cyan;
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #a10909;
+    text-transform: uppercase;
+}
+
+#connected-user
+{
+    font-size: 1.8em;
+    text-align: center;
+    font-weight: bold;
+    color: #007bff;
+    background-color: aliceblue;
+    padding: 10px 0px;
+    border: 2px groove cyan;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #a10909;
+    text-transform: uppercase;
+}
+
+#nav-elements
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: aliceblue;
+    border: 2px groove cyan;
+    height: 60px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.nav-element
+{
+    text-decoration: none;
+} */

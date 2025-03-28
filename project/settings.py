@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "authentification",
     "blogpost",
     "followup",
+    "feed",
     ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -119,12 +120,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATICFILES_DIRS = [
-    BASE_DIR/"staticfiles",
+    BASE_DIR/"static",
     ]
 STATIC_URL = "static/"
 
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 
 MEDIA_ROOT = BASE_DIR/"mediafiles/"
 
@@ -135,8 +136,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "authentification.LitRevuUser"
 
-LOGIN_REDIRECT_URL = "flux:ticket-list" # aller à la page de flux du site
+# LOGIN_REDIRECT_URL = "flux:ticket-list" # aller à la page de flux du site
+LOGIN_REDIRECT_URL = "feed:feed" # aller à la page de flux du site
 
 LOGOUT_REDIRECT_URL = "home"
 
-LOGIN_URL = "home"
+# LOGIN_URL = "flux:ticket-list"

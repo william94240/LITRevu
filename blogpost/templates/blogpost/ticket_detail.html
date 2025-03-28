@@ -6,7 +6,7 @@
     <hr>
     <br>
     <nav>
-        <a href="{% url 'flux:ticket-list' %}">Retour au flux</a>
+        <a href="{% url 'feed:feed' %}">Retour au flux</a>
         <span>|</span>
         <a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}">Ajouter un commentaire sur ce livre ou cet article</a>
         <span>|</span>
@@ -15,11 +15,14 @@
         <a href="{% url 'flux:ticket-delete' slug=ticket.slug %}">Supprimer le ticket</a>                   
         <span>|</span>
         <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Afficher les critiques sur ce livre/article</a>            
-    </nav>
+    </nav>    
     <br> 
-    <h1>{{ ticket.title }}</h1>    
-    <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width='200'>    
-    <p>{{ ticket.description }}</p>
+    <h1>{{ ticket.title }}</h1>
+    <hr>    
+    <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width='150px'>
+    <p>Post de: {{ ticket.user }}</p>
+    <p>Date de la demande: {{ ticket.time_created }}</p>    
+    <p>Description: {{ ticket.description }}</p>
 
     <h2>Les critiques dédiées à "{{ ticket.title }}" :</h2>
     {% for review in ticket.reviews.all %}

@@ -1,0 +1,13 @@
+<a href="{% url 'flux:ticket-detail' slug=post.slug %}">
+    <h3>
+        {{ post.title }} - ({{ forloop.counter }}) - 
+        <a href="{% url 'flux:ticket-update' slug=post.slug %}">
+            [Modifier]
+        </a>
+        <a href="{% url 'flux:ticket-delete' slug=post.slug %}">
+            [Supprimer]
+        </a>
+    </h3>        
+<img src="{{ post.image.url }}" alt="L'image de '{{ post.title }}'" width="75px">
+</a>
+<p>{{ ticket.description|truncatewords:30 }}</p>
