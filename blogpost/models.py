@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
-from django.utils.text import slugify
 from autoslug import AutoSlugField
 from django.utils.text import slugify
 
@@ -20,8 +19,8 @@ class Ticket(models.Model):
     time_created: DateTimeField
 
     Methods:
-        __str__(): Returns a string representation of the ticket, 
-        displaying its title. 
+        __str__(): Returns a string representation of the ticket,
+        displaying its title.
     """
     title = models.CharField(max_length=128, verbose_name="Nom du livre ou de l'article")
     slug = AutoSlugField(unique=True, populate_from="title", max_length=256)
@@ -40,16 +39,15 @@ class Ticket(models.Model):
         )
     image = models.ImageField(
         null=True, blank=True,
-        upload_to='ticket_images/',             
-        verbose_name="Image du livre/article",        
-        default="ticket_images/django.png",        
+        upload_to='ticket_images/',
+        verbose_name="Image du livre/article",
+        default="ticket_images/django.png",
         )
-    
+
     content_type = "TICKET"
-    
 
     class Meta:
-        verbose_name = "Livre ou Article"        
+        verbose_name = "Livre ou Article"
         ordering = ["-time_created"]
 
     def __str__(self):
@@ -58,11 +56,8 @@ class Ticket(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """Return the absolute url of the ticket"""            
+        """Return the absolute url of the ticket"""
         return reverse("flux:ticket-detail", kwargs={"slug": self.slug})
-        
-
-  
 
 
 class Review(models.Model):
@@ -85,10 +80,10 @@ class Review(models.Model):
         (0, '☆☆☆☆☆'),
         (1, '★☆☆☆☆'),
         (2, '★★☆☆☆'),
-        (3, '★★★☆☆'),        
+        (3, '★★★☆☆'),
         (4, '★★★★☆'),
         (5, '★★★★★'),
-    ] 
+    ]
 
     ticket = models.ForeignKey(to=Ticket, on_delete=models.CASCADE, related_name="reviews")
     # validates rating must be between 0 and 5
@@ -99,23 +94,21 @@ class Review(models.Model):
     )
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews")
-    headline = models.CharField(max_length=128, verbose_name="En-tête de la critique")    
+    headline = models.CharField(max_length=128, verbose_name="En-tête de la critique")
     slug = AutoSlugField(populate_from="headline", unique=True, max_length=256)
     body = models.TextField(max_length=8192, blank=True, verbose_name="Commentaires ")
-    time_created =models.DateTimeField(auto_now_add=True, verbose_name="Date de publication de la critique")
+    time_created = models.DateTimeField(auto_now_add=True, verbose_name="Date de publication de la critique")
 
     content_type = "REVIEW"
 
     class Meta:
         verbose_name = "Critique"
         ordering = ["-time_created"]
-       
 
     def __str__(self):
         """Return a string representation of the review."""
-        return f'Critique "{self.headline}" pour "{self.ticket.title}"'  
-    
+        return f'Critique "{self.headline}" pour "{self.ticket.title}"'
+
     def get_absolute_url(self):
         """Return the absolute url of the review"""
         return reverse("flux:ticket-review-detail", kwargs={"ticket_slug": self.ticket.slug, "slug": self.slug})
- 

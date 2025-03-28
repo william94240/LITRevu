@@ -10,18 +10,18 @@ html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    /* background-color: url("images/LITrevu_banner.png") no-repeat center; */
+    background-color: url("images/image-2.jpg");
     background-size: cover;
 }
 
-body {
+/* body {
     height: 100%;
     margin: 10px;
     padding: 10px;
     font-family: 'Arial', sans-serif;
     background-color: rgba(255, 255, 255, 0.8);
     background-size: cover;
-}
+} */
 
 
 /* body {
