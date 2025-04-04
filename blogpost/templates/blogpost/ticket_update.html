@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Modifier un ticket</h1>
+    <h3 class="form-title">Modifier un ticket</h3>
 
-    <a href="{% url 'flux:ticket-list' %}">Retour au sommaire</a>
+    <!-- <a href="{% url 'flux:ticket-list' %}" class="return-link">Retour au sommaire</a> -->
+    <a href="{% url 'feed:feed' %}" class="return-link">Retour au flux</a>
     <br><br>
-    
-    <form method="POST">
+
+    <form method="POST" class="form-body">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Modifier le ticket</button>
-        
+        <input type="submit" value="Modifier le ticket" class="button-1">
     </form>
 
 {% endblock %}

@@ -1,24 +1,21 @@
 {% extends "base.html" %}
-
-{% block title %}<title>Le Flux</title>{% endblock %}
+{% load static %}
+{% block title %}<title>Les Posts</title>{% endblock %}
 
 {% block content %}
-    <h2 class="flux-title">Les Posts de {{ request.user }}</h2>
- 
-    <button>
-        <h3><a href="{% url 'flux:ticket-create' %}" style="color: rgb(255, 0, 255);">Demander une critique pour un livre ou un article</a></h3>
-    </button>
-        
-    <button>
-        <h3><a href="{% url 'flux:ticket-create-aio' %}" style="color: rgb(255, 0, 255);">Commenter un livre ou un article</a></h3>
-    </button>  
-                
-    {% for post in posts %}
-        {% if post.content_type == 'TICKET' %}
-            {% include 'feed/ticket_snippet.html' %}
-        {% elif post.content_type == 'REVIEW' %}
-            {% include 'feed/review_snippet.html' %}
-        {% endif %}
-    {% endfor %}    
+    <h2 class="feed-title">Les Posts de {{ request.user }}</h2>
+    <ul class="nav-list-vertical">
+        <li><a href="{% url 'flux:ticket-create' %}" class="feed-nav-items">Demander une critique pour un livre ou un article</a></li>
+        <li><a href="{% url 'flux:ticket-create-aio' %}" class="feed-nav-items">Commenter un livre ou un article</a></li>
+    </ul>
+    <div class="grid-container">
+        {% for post in posts %}
+            {% if post.content_type == 'TICKET' %}
+                {% include 'feed/ticket_snippet.html' %}
+            {% elif post.content_type == 'REVIEW' %}
+                {% include 'feed/review_snippet.html' %}
+            {% endif %}
+        {% endfor %}
+    </div>
 
 {% endblock %}

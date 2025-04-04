@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Créer un ticket</h1>
+    <h3 class="form-title">Création d'un ticket</h3>
 
-    <a href="{% url 'feed:feed' %}">Retour au flux</a>
-    <br><br>
-    
-    <form method="POST">
+    <a href="{% url 'feed:feed' %}" class="return-link">Retour au flux</a>
+
+    <form method="POST" class="form-body">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Créer le ticket</button>
-
+        <input type="submit" value="Créer un nouveau ticket" class="button-1">
     </form>
 {% endblock %}

@@ -1,17 +1,15 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block title %}<title>Arrêt du suivi</title>{% endblock %}
 
 {% block content %}
 
-    <a href="{% url 'follow:follow' %}">Retour aux Abonnements</a>
-    
-    <form method="POST">        
-        <p>Voulez-vous supprimer la relation "{{ ticket.title }}"?</p>
-        
-        {% csrf_token %}
+    <a href="{% url 'follow:follow' %}" class="return-link">Retour aux Abonnements</a>
 
-        <button type="submit">Supprimer</button>
+    <form method="POST" class="form-body">
+        <p>Voulez-vous supprimer cette relation ?</p>
+        {% csrf_token %}
+        <button type="submit" class="button-1">Supprimer</button>
     </form>
 
 {% endblock %}

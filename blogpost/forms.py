@@ -2,6 +2,7 @@ from django import forms
 
 from .models import Ticket, Review
 
+
 class TicketForm(forms.ModelForm):
     """
     ModelForm for creating or update a new Ticket.
@@ -13,9 +14,6 @@ class TicketForm(forms.ModelForm):
             "title": "Entrez le nom ici",
             "description": "Entrez la description ici",
         }
-
-
-     
 
 
 class ReviewForm(forms.ModelForm):
@@ -31,7 +29,7 @@ class ReviewForm(forms.ModelForm):
         help_texts = {
             "headline": "Entrez la critique ici",
             "body": "Entrez le commentaire ici",
-            "rating": "Entrez la note ici",
+            "rating": "choisissez la note en nombre d'étoiles",
         }
 
 
@@ -40,11 +38,10 @@ class TicketCreateForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = ('title', 'description', 'image')
-        
 
 
 class ReviewCreateForm(forms.ModelForm):
     """Form for creating a new Review and Ticket all in one."""
     class Meta:
         model = Review
-        fields = ('headline', 'rating', 'body')    
+        fields = ('headline', 'rating', 'body')

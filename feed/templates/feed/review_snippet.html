@@ -1,14 +1,16 @@
-<a href="{% url 'flux:ticket-review-detail' ticket_slug=post.ticket.slug slug=post.slug %}">
-    <h3>
-        {{ post.headline }} - ({{ forloop.counter }}) -
-        <a href="{% url 'flux:ticket-review-update' ticket_slug=post.ticket.slug slug=post.slug %}">
-            [Modifier]
+<div class="review-list-element">
+<a href="{% url 'flux:ticket-review-detail' ticket_slug=post.ticket.slug slug=post.slug %}" class="detail-link">
+    <h4>
+        {{ post.headline }} ({{ forloop.counter }})
+        <a href="{% url 'flux:ticket-review-update' ticket_slug=post.ticket.slug slug=post.slug %}" class="edit-link">
+            Modifier &nbsp;
         </a>
-        <a href="{% url 'flux:ticket-review-delete' ticket_slug=post.ticket.slug slug=post.slug %}">
-            [Supprimer]
+        <a href="{% url 'flux:ticket-review-delete' ticket_slug=post.ticket.slug slug=post.slug %}" class="delete-link">
+            Supprimer
         </a>
-    </h3>
-</a>         
-<p>{{ post.get_rating_display }}</p>
+    </h4>
+</a>
+<p class="rating">{{ post.get_rating_display }}</p>
 <p>{{ post.body|truncatewords:30 }}</p>
+</div>
 

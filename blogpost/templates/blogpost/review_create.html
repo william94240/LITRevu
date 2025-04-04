@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Créer une critique sur "<em>{{ ticket.title }}</em>"</h1>   
+    <h3 class="form-title">Créer une critique sur:&nbsp;<span style="color: rgb(61, 61, 61);">{{ ticket.title }}</span></h3>
     <br>
-    <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Retour aux critiques du Livre/Article</a>      
+    <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}" class="return-link">Retour aux critiques du Livre/Article</a>
     <br><br>
-        
-    <form method="POST">
+
+    <form method="POST" class="form-body">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Créer la critique</button>
+        <button type="submit" class="button-1">Ajouter une nouvelle critique</button>
     </form>
 {% endblock %}

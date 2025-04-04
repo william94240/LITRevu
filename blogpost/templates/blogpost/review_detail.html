@@ -3,18 +3,17 @@
 {% block title %}<title>{{ review.headline }}</title>{% endblock %}
 
 {% block content %}
-    <hr>
-    <br>
     <nav>
-        <a href="{% url 'flux:ticket-review-list' ticket_slug=review.ticket.slug %}">Retour aux critiques du livre/article</a>
-        <span>|</span>   
-        <a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}">Modifier la critique</a>
-        <span>|</span>
-        <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}">Supprimer la critique</a> 
+        <ul class="nav-list-vertical">
+            <li><a href="{% url 'flux:ticket-review-list' ticket_slug=review.ticket.slug %}" class="reviw-detail-nav-element">Retour aux critiques du livre/article</a></li>
+            <li><a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}" class="reviw-detail-nav-element">Modifier la critique</a></li>
+            <li> <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}" class="reviw-detail-nav-element">Supprimer la critique</a></li>
+        </ul>
     </nav>
-    <br> 
-    <h1>{{ review.headline }}</h1>
-    <p>{{ review.get_rating_display }}</p> 
-    <p>{{ review.body }}</p>
- 
+    <hr class="hr-1">
+
+    <h4>La critique sur <span style="color: grey;">{{ review.ticket }}</span> : <br> <span style="color: rgb(38, 36, 140);">{{ review.headline }}</span></h4>
+    <p class="rating">{{ review.get_rating_display }}</p>
+    <p style="margin: 50px 0;">{{ review.body }}</p>
+
 {% endblock %}

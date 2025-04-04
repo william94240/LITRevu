@@ -3,28 +3,29 @@
 {% block title %}<title>Les Critiques</title>{% endblock %}
 
 {% block content %}
-    <h1>Les Critiques sur "<em>{{ ticket.title }}/<em>"</h1>
-    <hr>
+    <h3>Les Critiques sur : &nbsp;<span style="color: rgb(61, 61, 61);">{{ ticket.title }}<span></h3>
+    <hr class="hr-1">
 
-    <h3><a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}">Ajouter une critique</a></h3>    
-    
-    <ul>
+    <a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}" class="return-link">Ajouter une critique</a>
+
+    <ul class="grid-container">
         {% for review in reviews %}
-            <li>              
-                <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}">
-                    <h3>
-                        {{ review.headline }} - ({{ forloop.counter }}) -
-                        <a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}">
-                            [Modifier]
+            <li class="review-list-element">
+                <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}" class="detail-link">
+                    <h4>
+                        {{ review.headline }} ({{ forloop.counter }})
+                        <a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}" class="edit-link">
+                            Modifier &nbsp;
                         </a>
-                        <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}">
-                            [Supprimer]
+                        <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}" class="delete-link">
+                            Supprimer
                         </a>
-                    </h3>
+                    </h4>
                 </a>
+                <p class="rating">{{ review.get_rating_display }}</p>
+                <p>{{ review.body|truncatewords:30 }}</p>
             </li>
-            <p>{{ review.get_rating_display }}</p>
-            <p>{{ review.body|truncatewords:30 }}</p>
+
         {% endfor %}
     </ul>
 

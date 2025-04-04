@@ -1,17 +1,18 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block title %}<title>Supprimer un ticket</title>{% endblock %}
 
 {% block content %}
 
-    <a href="{% url 'flux:ticket-list' %}">Retour à la liste de tickets</a>
-    
-    <form method="POST">        
+    <!-- <a href="{% url 'flux:ticket-list' %}" class="return-link">Retour au flux</a> -->
+    <a href="{% url 'feed:feed' %}" class="return-link">Retour au flux</a>
+
+    <form method="POST" class="form-body">
         <p>Voulez-vous supprimer le ticket "{{ ticket.title }}"?</p>
-        
+
         {% csrf_token %}
 
-        <button type="submit">Supprimer</button>
+        <button type="submit" class="button-1">Supprimer</button>
     </form>
 
 {% endblock %}

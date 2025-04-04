@@ -1,17 +1,15 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block title %}<title>Supprimer la critique</title>{% endblock %}
 
 {% block content %}
-    <h1>Suppression de la critique:  <em>{{ review.headline }}</em></h1>
-
-    <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}">Retour aux critiques</a>
-    
-    <form method="POST">
+    <a href="{% url 'flux:ticket-review-detail' ticket_slug=review.ticket.slug slug=review.slug %}" class="return-link">Retour aux critiques</a>
+    <h3>Suppression de la critique: &nbsp;<span style="color: rgb(61, 61, 61);">{{ review.headline }}</span></h3>
+    <form method="POST" class="form-body">
         {% csrf_token %}
-        <p>Voulez-vous supprimer la critique "{{ review.headline }}"?</p>
-       
-        <button type="submit">Supprimer</button>
+        <p>Voulez-vous vraiment supprimer la critique "{{ review.headline }}"?</p>
+
+        <button type="submit" class="button-1">Supprimer</button>
     </form>
 
 {% endblock %}

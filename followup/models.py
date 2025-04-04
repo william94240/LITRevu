@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-    
+
 
 class UserFollow(models.Model):
     """UserFollows model represents the relationship between users when one user follows another.
@@ -13,15 +13,14 @@ class UserFollow(models.Model):
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="followings",
-        verbose_name="Utilisateur suiveur",        
+        verbose_name="Utilisateur suiveur",
         )
     followed_user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="followed_by",
         verbose_name="Utilisateur suivi"
-        )    
-        
+        )
 
     class Meta:
         """Meta class for the UserFollows model."""
@@ -32,11 +31,10 @@ class UserFollow(models.Model):
         verbose_name = "Relation de suivi"
         verbose_name_plural = "Relations de suivi"
 
-
     def __str__(self):
-        """Return a string representation of the UserFollows instance""" 
+        """Return a string representation of the UserFollows instance"""
         return f"{self.user} follows {self.followed_user}"
-    
+
     def unfollow(self):
         """Ends the tracking relationship between users."""
         self.delete()
@@ -45,12 +43,12 @@ class UserFollow(models.Model):
     def is_following(cls, user, followed_user):
         """Checks if a user follows another user."""
         return cls.objects.filter(user=user, followed_user=followed_user).exists()
-    
+
     # def get_absolute_url(self):
     #     """Return the absolute url of the ticket"""
-    #     # return reverse("ticket", kwargs={"pk": self.pk})    
+    #     # return reverse("ticket", kwargs={"pk": self.pk})
     #     return reverse("flux:ticket-detail", kwargs={"slug": self.slug})
-    
+
 
 class UserBlock(models.Model):
     """Model for user blocking relationship.
@@ -82,9 +80,6 @@ class UserBlock(models.Model):
         verbose_name = "Relation de blocage"
         verbose_name_plural = "Relations de blocage"
 
-    
     def __str__(self):
         """Return a string representation of the UserBlocks instance."""
         return f"{self.user} blocks {self.blocked_user}"
-
-

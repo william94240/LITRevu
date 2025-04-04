@@ -3,31 +3,33 @@
 {% block title %}<title>{{ ticket.title }}</title>{% endblock %}
 
 {% block content %}
-    <hr>
-    <br>
-    <nav>
-        <a href="{% url 'feed:feed' %}">Retour au flux</a>
-        <span>|</span>
-        <a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}">Ajouter un commentaire sur ce livre ou cet article</a>
-        <span>|</span>
-        <a href="{% url 'flux:ticket-update' slug=ticket.slug %}">Modifier le ticket</a>
-        <span>|</span>       
-        <a href="{% url 'flux:ticket-delete' slug=ticket.slug %}">Supprimer le ticket</a>                   
-        <span>|</span>
-        <a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}">Afficher les critiques sur ce livre/article</a>            
-    </nav>    
-    <br> 
-    <h1>{{ ticket.title }}</h1>
-    <hr>    
-    <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width='150px'>
-    <p>Post de: {{ ticket.user }}</p>
-    <p>Date de la demande: {{ ticket.time_created }}</p>    
-    <p>Description: {{ ticket.description }}</p>
-
-    <h2>Les critiques dédiées à "{{ ticket.title }}" :</h2>
+    <main class="ticket-detail">
+        <nav>
+            <div class="nav-list-vertical">
+                <li><a href="{% url 'feed:feed' %}" class="ticket-detail-nav-element">Retour au flux</a></li>
+                <li><a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}" class="ticket-detail-nav-element">Ajouter un commentaire sur ce livre ou cet article</a></li>
+                <li><a href="{% url 'flux:ticket-update' slug=ticket.slug %}" class="ticket-detail-nav-element">Modifier le ticket</a></li>
+                <li><a href="{% url 'flux:ticket-delete' slug=ticket.slug %}" class="ticket-detail-nav-element">Supprimer le ticket</a></li>
+                <li><a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}" class="ticket-detail-nav-element">Afficher en détail les critiques sur ce livre/article</a></li>
+            </div>
+        </nav>
+        <hr class="hr-1">
+        <h3>{{ ticket.title }}</h3>
+        <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width='150px'>
+        <p>Post de: {{ ticket.user }}</p>
+        <p>Date de la demande: {{ ticket.time_created }}</p>
+        <p>Description: {{ ticket.description }}</p>
+        <br><br>
+        <h3>Synthèse des critiques dédiées à : &nbsp;<span style="color: rgb(61, 61, 61);">{{ ticket.title }}</span></h3>
+        <div class="grid-container">
     {% for review in ticket.reviews.all %}
-        <h3> {{ forloop.counter }} - {{ review.headline }}</h3>
-        <p> {{ review.body }}</p>
-    {% endfor %}
+            <div>
+                <h4>{{ forloop.counter }} - {{ review.headline }}</h4>
+                <p>{{ review.body }}</p>
+            </div>
+        {% endfor %}
+        </div>
+        <br><br>
+    </main>
 
 {% endblock %}

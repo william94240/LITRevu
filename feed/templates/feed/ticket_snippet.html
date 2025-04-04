@@ -1,13 +1,16 @@
-<a href="{% url 'flux:ticket-detail' slug=post.slug %}">
-    <h3>
-        {{ post.title }} - ({{ forloop.counter }}) - 
-        <a href="{% url 'flux:ticket-update' slug=post.slug %}">
-            [Modifier]
+<div class="ticket-snippet">
+<a href="{% url 'flux:ticket-detail' slug=post.slug %}" class="ticket-snippet-link">
+    <h4>
+        {{ post.title }} ({{ forloop.counter }})
+        <a href="{% url 'flux:ticket-update' slug=post.slug %}" class="ticket-snippet-link-1">
+            Modifier&nbsp;
         </a>
-        <a href="{% url 'flux:ticket-delete' slug=post.slug %}">
-            [Supprimer]
+        <a href="{% url 'flux:ticket-delete' slug=post.slug %}" class="ticket-snippet-link-2">
+            Supprimer
         </a>
-    </h3>        
-<img src="{{ post.image.url }}" alt="L'image de '{{ post.title }}'" width="75px">
+    </h4>
 </a>
-<p>{{ ticket.description|truncatewords:30 }}</p>
+<img src="{{ post.image.url }}" alt="L'image de '{{ post.title }}'" width="75px" class="ticket-snippet-image">
+<p>{{ post.description|truncatewords:30 }}</p>
+</div>
+

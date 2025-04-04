@@ -2,33 +2,62 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding:0;
 }
 
 html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: url("images/image-2.jpg");
+    background: url('images/LITrevu_banner.png') center;
     background-size: cover;
 }
 
-/* body {
-    height: 100%;
-    margin: 10px;
-    padding: 10px;
-    font-family: 'Arial', sans-serif;
-    background-color: rgba(255, 255, 255, 0.8);
+body {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
     background-size: cover;
-} */
-
-
-/* body {
     border: 2px solid black;
-    padding: 10px;
-    background: url('images/LITrevu_banner.png') no-repeat;
-    background-size: cover;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px 0px 20px 0px;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px 20px;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px 20px;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.hr-1 {
+    margin: 50px 0;
+    border: 2px groove grey;
 }
 
 #footer-logout {
@@ -39,126 +68,452 @@ html {
     background-color: orangered;
     border-radius: 10px;
     padding: 5px;
-    margin: 10px 0px 0px 50%;
+    margin: 20px 40%;
 }
 
-.flux-title {
-    font-size: 1.5em;
-    width: 250px;
-    font-weight: bold;
-    color: #007bff;
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 20px 0px 20px 0px;
-    margin-bottom: 50px;
-    border: 2px groove cyan;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px violet;
-} */
-
-
-/* HOME */
-
-/* #home {
-    height: 200%;
-    background: url('images/LITrevu_banner.png')  no-repeat center;
-    background-size: cover;
-    color: rgb(146, 75, 125);
-    clear: both;
+#footer-logout:hover {
+    background-color: #ff7bff;
 }
 
-#home-title
-{
-    font-size: 3em;
+.form-title {
+    text-transform: uppercase;
+    width: 500px;
+    margin: 50px auto;
+}
+
+.return-link {
+    color: #6b9d63;
     font-weight: bold;
-    color: #007bff;
+}
+
+.form-body {
+    line-height: 50px;
+    margin: 50px auto;
+    font-weight: bold;
+    margin: 50px auto;
+}
+
+.button-1{
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: orangered;
     text-align: center;
-    background-color: #f8f9fa;
-    padding: 20px 0px 20px 0px;
-    margin-bottom: 50px;
-    border: 2px groove cyan;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px;
     border-radius: 10px;
+    margin: 20px 40%;
+}
+
+.button-1:hover {
+    background-color: #ff7bff;
+}
+
+
+/* GLOBAL: REVIEW-SNIPPET HTML + REVIEW-LIST.HTML*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-list-element {
+    border: 2px solid #6b9d63;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.review-list-element:hover {
     box-shadow: 10px 10px 5px #a10909;
+}
+
+.detail-link {
+    text-decoration: none;
+    color: #6b9d63;
+    font-weight: bold;
+}
+
+.edit-link {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(4, 50, 50);
+    font-weight: bold;
+    border: 1px solid #6b9d63;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.delete-link {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(4, 50, 50);
+    font-weight: bold;
+    border: 1px solid #6b9d63;
+    border-radius: 5px;
+}
+
+.rating {
+    margin: 10px 0;
+    background-color: aquamarine;
+    width: 80px;
+    padding: 5px;
+}
+
+/* GLOBAL: FEED.HTML + MY_FEED.HTML + REVIEW_DETAIL.HTML + TICKET_DETAIL.HTML*/
+
+.feed-title {
+    width: 334px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 0 0 50px 35%;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.nav-list-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background-color: aliceblue;
+    padding: 20px 20px;
+    border-left: 2px groove cyan;
+    border-radius: 10px;
+    gap: 20px;
+    opacity: 0.9;
+}
+
+
+/* HOME.HTML */
+
+#home {
+    height: 100%;
+}
+
+#home-title {
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px red;
+    margin-bottom: 50px;
+    border: 2px groove cyan;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px violet;
 }
 
 #home-header h2 {
     text-align: center;
+    font-weight: bold;
+    color: rgb(146, 75, 125);
 }
 
-#home-connect
-{
-    margin-top: 500px;
-    height: 400px;
-    color: rgb(146, 75, 125);
+#home-connect {
     text-align: center;
+}
+
+#home-connect h3{
+    margin: 110px 0;
+    font-weight: bold;
+    color: rgb(146, 75, 125);
 }
 
 #home-connect a {
-    float: left;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+    color: #fff;
     background-color: orangered;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
     text-transform: uppercase;
-    padding: 5px;
+    text-decoration: none;
+    padding: 20px;
     border-radius: 10px;
-    margin: 40px 0px 0px 30%;
-} */
-
-/* BASE */
+    margin-bottom: 110px;
+}
 
 
-/* #site-title
-{
-    font-size: 4em;
+/* LOGIN FORM */
+
+.login-body {
+    width: 500px;
+    height: auto;
+    margin: 350px auto;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+.login-form {
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.login-form input[type="submit"] {
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: orangered;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.login-body  p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+/* SIGNUP FORM */
+
+.signup-body {
+    width: auto;
+    height: auto;
+    margin: 2% 5%;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+.hr-1 {
+    margin-bottom: 50px;
+    border: 2px solid grey;
+}
+
+.signup-form {
+    line-height: 50px;
+}
+
+.signup-form h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff7bff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.signup-form input[type="submit"] {
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: orangered;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 30px 40%;
+}
+
+
+
+/* BASE.HTML */
+
+#base {
+    height: 100%;
+}
+.site-title{
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px red;
+    margin-bottom: 50px;
+    border: 2px groove cyan;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px violet;
+    opacity: 0.9;
+}
+
+#connected-user {
+    text-align: center;
     font-weight: bold;
     color: #007bff;
-    text-align: center;
     background-color: aliceblue;
+    padding: 10px 3px;
     border: 2px groove cyan;
-    padding: 10px 0px 10px 0px;
     margin-bottom: 50px;
     border-radius: 10px;
     box-shadow: 10px 10px 5px #a10909;
     text-transform: uppercase;
+    opacity: 0.9;
 }
 
-#connected-user
-{
-    font-size: 1.8em;
-    text-align: center;
-    font-weight: bold;
-    color: #007bff;
-    background-color: aliceblue;
-    padding: 10px 0px;
-    border: 2px groove cyan;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px #a10909;
-    text-transform: uppercase;
-}
-
-#nav-elements
-{
+#basis-nav-list {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
     list-style-type: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    text-decoration: none;
+    margin-bottom: 50px;
     background-color: aliceblue;
-    border: 2px groove cyan;
-    height: 60px;
-    font-size: 1.5em;
-    font-weight: bold;
+    padding: 20px 20px;
+    border-bottom: 2px groove cyan;
     border-radius: 10px;
+    gap: 20px;
+    opacity: 0.9;
 }
 
-.nav-element
-{
-    text-decoration: none;
+.basis-nav-element {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.basis-nav-element:hover {
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+
+/* GLOBAL: FEED.HTML  + MY_FEED.HTML*/
+
+/* .feed-title {
+    width: 150px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 0 0 50px 35%;
+    border-radius: 10px;
+    opacity: 0.9;
 } */
+
+/* #feed-nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background-color: aliceblue;
+    padding: 20px 20px;
+    border-left: 2px groove cyan;
+    border-radius: 10px;
+    gap: 20px;
+    opacity: 0.9;
+} */
+
+
+/* TICKET-SNIPPET HTML */
+
+.ticket-snippet {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.ticket-snippet:hover {
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+.ticket-snippet-link {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.ticket-snippet-link-1 {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(4, 50, 50);
+    font-weight: bold;
+    border: 1px solid #6b9d63;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.ticket-snippet-link-2 {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(4, 50, 50);
+    font-weight: bold;
+    border: 1px solid #6b9d63;
+    border-radius: 5px;
+}
+
+.ticket-snippet-image {
+    margin: 30px 0;
+}
+
+
+/* REVIEW_DETAIL.HTML */
+
+.review-detail-nav-element {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.reviw-detail-nav-element:hover {
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+
+/* TICKET_DETAIL.HTML */
+
+.ticket-detail-nav-element:hover {
+    box-shadow: 10px 10px 5px #a10909;
+}
+
+.ticket-detail h3 {
+    margin-bottom: 50px;
+}
+
+.ticket-detail img {
+    margin-bottom: 50px;
+}
+
+
+/* USERFOLLOW.HTML */
+
+.subcription-titles {
+    width: 300px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 0 0 50px 35%;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.follow-users-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background-color: rgb(255, 249, 249);
+    padding: 20px 20px;
+    border-left: 2px groove cyan;
+    border-right: 2px groove cyan;
+    border-radius: 10px;
+    gap: 20px;
+    opacity: 0.9;
+}
+
+.messages {
+    background-color: red;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 10px;
+    list-style-type: none;
+}

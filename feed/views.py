@@ -6,14 +6,13 @@ from blogpost.models import Ticket, Review
 from followup.models import UserFollow
 
 
-
 class TheFeedPageView(LoginRequiredMixin, TemplateView):
     """The feed page view."""
     template_name = 'feed/feed.html'
 
     def get_context_data(self, **kwargs):
-        followed_users = UserFollow.objects.filter(user=self.request.user).exclude(followed_user=self.request.user)        
-        followed_users = followed_users.values_list('followed_user', flat=True) 
+        followed_users = UserFollow.objects.filter(user=self.request.user).exclude(followed_user=self.request.user)
+        followed_users = followed_users.values_list('followed_user', flat=True)
         posts = chain(
             self.request.user.tickets.all(),
             self.request.user.reviews.all(),
@@ -26,7 +25,6 @@ class TheFeedPageView(LoginRequiredMixin, TemplateView):
             reverse=True
             )
         return super().get_context_data(**kwargs)
-    
 
 
 class MyFeedPageView(LoginRequiredMixin, TemplateView):
@@ -40,5 +38,4 @@ class MyFeedPageView(LoginRequiredMixin, TemplateView):
             reverse=True
             )
         return super().get_context_data(**kwargs)
-    
-    
+

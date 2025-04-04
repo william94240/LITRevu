@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Création d'un Ticket avec une Critique associée</h1>
+    <h3 class="form-title">Créer un ticket et ajouter une critique</h3>
 
-    <a href="{% url 'flux:ticket-list' %}">Retour au sommaire</a>
-    <br><br>
-    
-    <form method="POST" enctype="multipart/form-data">
+    <a href="{% url 'feed:feed' %}" class="return-link">Retour au Flux</a>
+
+    <form method="POST" enctype="multipart/form-data" class="form-body">
+        <p class="ticket-review-create-para">Veuillez créer le ticket:</p>
         {% csrf_token %}
-        <p>Veuillez créer le ticket:</p>
         {{ form.as_p }}
-        <br>
-        <p>Veuillez saisir la critique associée: </p>
+        <p class="ticket-review-create-para">Veuillez saisir la critique associée: </p>
         {{ form_review.as_p }}
-        <br>    
-        <button type="submit">Créer</button>
+        <input type="submit" value="Créer" class="button-1">
     </form>
 {% endblock %}
