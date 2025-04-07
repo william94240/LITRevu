@@ -1,8 +1,5 @@
-from django.views.generic import (ListView, DetailView, CreateView,
-                                  UpdateView, DeleteView, TemplateView
-                                  )
+from django.views.generic import (CreateView, DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.urls import reverse
 

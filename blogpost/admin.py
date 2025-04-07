@@ -4,6 +4,7 @@ from .models import Ticket, Review
 
 # Register your models here.
 
+
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     """
@@ -13,12 +14,11 @@ class TicketAdmin(admin.ModelAdmin):
         "title",
         "user",
         "slug",
-        "time_created"        
+        "time_created"
     )
-    # list_display = "__all__"
+
     empty_value_display = "-vide-"
     list_display_links = ("title", )
-    # list_editable = ("time_created", )
     search_fields = ("title", "user__username", "time_created")
     list_filter = ("user", )
     autocomplete_fields = ("user", )
@@ -38,7 +38,6 @@ class ReviewAdmin(admin.ModelAdmin):
         "rating",
         "time_created"
     )
-    # list_display = "__all__"
     empty_value_display = "-vide-"
     list_display_links = ("headline", )
     list_editable = ("rating",)
@@ -46,4 +45,3 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ("time_created", "user", "rating", "ticket")
     autocomplete_fields = ("ticket", "user", )
     list_per_page = 10
-    

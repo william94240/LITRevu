@@ -27,7 +27,7 @@ class UserBlockAdmin(admin.ModelAdmin):
     list_display = (
         "user",
         "blocked_user",
-    )    
+    )
     list_display_links = ("user", )
     search_fields = ("user__username", "blocked_user__username")
     list_filter = ("user", "blocked_user")

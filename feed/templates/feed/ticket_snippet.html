@@ -2,12 +2,14 @@
 <a href="{% url 'flux:ticket-detail' slug=post.slug %}" class="ticket-snippet-link">
     <h4>
         {{ post.title }} ({{ forloop.counter }})
+        {% if post.user == request.user %}
         <a href="{% url 'flux:ticket-update' slug=post.slug %}" class="ticket-snippet-link-1">
             Modifier&nbsp;
         </a>
         <a href="{% url 'flux:ticket-delete' slug=post.slug %}" class="ticket-snippet-link-2">
             Supprimer
         </a>
+        {% endif %}
     </h4>
 </a>
 <img src="{{ post.image.url }}" alt="L'image de '{{ post.title }}'" width="75px" class="ticket-snippet-image">

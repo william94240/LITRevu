@@ -8,28 +8,28 @@
         <button>
             <h3><a href="{% url 'flux:ticket-create' %}" style="color: rgb(255, 0, 255);">Demander une critique pour un livre ou un article</a></h3>
         </button>
-            
+
         <button>
             <h3><a href="{% url 'flux:ticket-create-aio' %}" style="color: rgb(255, 0, 255);">Commenter un livre ou un article</a></h3>
-        </button>  
-    <ul>  
+        </button>
+    <ul>
     {% for ticket in tickets %}
-    <li>               
+    <li>
         <a href="{% url 'flux:ticket-detail' slug=ticket.slug %}">
             <h3>
-                {{ ticket.title }} - ({{ forloop.counter }}) - 
+                {{ ticket.title }} - ({{ forloop.counter }}) -
                 <a href="{% url 'flux:ticket-update' slug=ticket.slug %}">
                     [Modifier]
                 </a>
                 <a href="{% url 'flux:ticket-delete' slug=ticket.slug %}">
                     [Supprimer]
                 </a>
-            </h3>        
+            </h3>
         <img src="{{ ticket.image.url }}" alt="L'image de '{{ ticket.title }}'" width="75px">
         </a>
         <p>{{ ticket.description|truncatewords:30 }}</p>
-        
-    </li>     
+
+    </li>
     {% endfor %}
     </ul>
 {% endblock %}

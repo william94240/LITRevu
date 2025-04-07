@@ -137,7 +137,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "authentification.LitRevuUser"
 
 # LOGIN_REDIRECT_URL = "flux:ticket-list" # aller à la page de flux du site
-LOGIN_REDIRECT_URL = "feed:feed" # aller à la page de flux du site
+LOGIN_REDIRECT_URL = "feed:feed"   # aller à la page de flux du site
 
 LOGOUT_REDIRECT_URL = "home"
 

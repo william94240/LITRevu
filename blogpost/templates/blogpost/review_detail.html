@@ -6,8 +6,10 @@
     <nav>
         <ul class="nav-list-vertical">
             <li><a href="{% url 'flux:ticket-review-list' ticket_slug=review.ticket.slug %}" class="reviw-detail-nav-element">Retour aux critiques du livre/article</a></li>
+            {% if review.user == request.user %}
             <li><a href="{% url 'flux:ticket-review-update' ticket_slug=review.ticket.slug slug=review.slug %}" class="reviw-detail-nav-element">Modifier la critique</a></li>
             <li> <a href="{% url 'flux:ticket-review-delete' ticket_slug=review.ticket.slug slug=review.slug %}" class="reviw-detail-nav-element">Supprimer la critique</a></li>
+            {% endif %}
         </ul>
     </nav>
     <hr class="hr-1">

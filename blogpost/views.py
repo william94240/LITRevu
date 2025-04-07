@@ -107,7 +107,8 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         """Return the URL to redirect to after processing a valid form."""
-        return reverse("flux:ticket-review-detail", kwargs={"ticket_slug": self.object.ticket.slug, "slug": self.object.slug})
+        return reverse("flux:ticket-review-detail",
+                       kwargs={"ticket_slug": self.object.ticket.slug, "slug": self.object.slug})
 
     def get_context_data(self, **kwargs):
         """Return the context data to use for forms on this view."""
@@ -131,7 +132,8 @@ class ReviewUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         """Return the URL to redirect to after processing a valid form."""
-        return reverse("flux:ticket-review-detail", kwargs={"ticket_slug": self.object.ticket.slug, "slug": self.object.slug})
+        return reverse("flux:ticket-review-detail",
+                       kwargs={"ticket_slug": self.object.ticket.slug, "slug": self.object.slug})
 
 
 class ReviewDeleteView(LoginRequiredMixin, DeleteView):

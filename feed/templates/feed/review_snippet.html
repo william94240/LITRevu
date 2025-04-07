@@ -2,12 +2,14 @@
 <a href="{% url 'flux:ticket-review-detail' ticket_slug=post.ticket.slug slug=post.slug %}" class="detail-link">
     <h4>
         {{ post.headline }} ({{ forloop.counter }})
+        {% if post.user == request.user %}
         <a href="{% url 'flux:ticket-review-update' ticket_slug=post.ticket.slug slug=post.slug %}" class="edit-link">
             Modifier &nbsp;
         </a>
         <a href="{% url 'flux:ticket-review-delete' ticket_slug=post.ticket.slug slug=post.slug %}" class="delete-link">
             Supprimer
         </a>
+        {% endif %}
     </h4>
 </a>
 <p class="rating">{{ post.get_rating_display }}</p>

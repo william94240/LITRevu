@@ -8,8 +8,14 @@
             <div class="nav-list-vertical">
                 <li><a href="{% url 'feed:feed' %}" class="ticket-detail-nav-element">Retour au flux</a></li>
                 <li><a href="{% url 'flux:ticket-review-create' ticket_slug=ticket.slug %}" class="ticket-detail-nav-element">Ajouter un commentaire sur ce livre ou cet article</a></li>
-                <li><a href="{% url 'flux:ticket-update' slug=ticket.slug %}" class="ticket-detail-nav-element">Modifier le ticket</a></li>
-                <li><a href="{% url 'flux:ticket-delete' slug=ticket.slug %}" class="ticket-detail-nav-element">Supprimer le ticket</a></li>
+
+                {% if ticket.user == request.user %}
+                    <li><a href="{% url 'flux:ticket-update' slug=ticket.slug %}" class="ticket-detail-nav-element">Modifier le ticket</a></li>
+                {% endif %}
+                {% if ticket.user == request.user %}
+                    <li><a href="{% url 'flux:ticket-delete' slug=ticket.slug %}" class="ticket-detail-nav-element">Supprimer le ticket</a></li>
+                {% endif %}
+
                 <li><a href="{% url 'flux:ticket-review-list' ticket_slug=ticket.slug %}" class="ticket-detail-nav-element">Afficher en détail les critiques sur ce livre/article</a></li>
             </div>
         </nav>

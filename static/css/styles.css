@@ -375,36 +375,6 @@ h4 {
 }
 
 
-/* GLOBAL: FEED.HTML  + MY_FEED.HTML*/
-
-/* .feed-title {
-    width: 150px;
-    font-weight: bold;
-    color: #007bff;
-    text-align: center;
-    background-color: aliceblue;
-    padding: 20px;
-    margin: 0 0 50px 35%;
-    border-radius: 10px;
-    opacity: 0.9;
-} */
-
-/* #feed-nav-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-weight: bold;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-    background-color: aliceblue;
-    padding: 20px 20px;
-    border-left: 2px groove cyan;
-    border-radius: 10px;
-    gap: 20px;
-    opacity: 0.9;
-} */
-
-
 /* TICKET-SNIPPET HTML */
 
 .ticket-snippet {

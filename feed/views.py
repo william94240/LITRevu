@@ -38,4 +38,3 @@ class MyFeedPageView(LoginRequiredMixin, TemplateView):
             reverse=True
             )
         return super().get_context_data(**kwargs)
-
