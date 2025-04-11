@@ -5,7 +5,7 @@
     <a href="{% url 'feed:feed' %}" class="return-link">Retour au flux</a>
     <br><br>
 
-    <form method="POST" class="form-body">
+    <form method="POST" class="form-body" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Modifier le ticket" class="button-1">
