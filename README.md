@@ -71,11 +71,14 @@ python manage.py runserver
 ```
 
 Le terminal de commande affiche le message suivant :
-```System check identified no issues (0 silenced).
-May 03, 2024 - 06:10:48
-Django version 5.0, using settings 'LitREVU.settings'
+```Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 13, 2025 - 12:22:20
+Django version 5.1.2, using settings 'project.settings'
 Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
+Quit the server with CTRL-BREAK.
 ```
 
 Vous avez alors deux possibilités : cliquez directement sur le lien dans le terminal,
