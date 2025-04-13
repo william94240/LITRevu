@@ -2,55 +2,57 @@
 
 # Le Projet:
 
-Réalisation d'un site permettant l'échange des critiques sur des livres et articles.
+Le projet consiste à la réalisation d'un site web permettant l'échange des critiques sur des livres et articles.
 
 -----------------
-<p align="center">
-<img src="./static/css/images/LITrevu_banner.png" width = 1000>
-</p>
+<div style="text-align: center;">
+<img src="./static/css/images/LITrevu_banner.png" width = auto>
+</div>
 
-# Installation
 
-### Clonez le dépôt
+# L'installation
 
-Pour cloner le dépôt, il suffit d'ouvrir le terminal et effectuer la commande suivante dans le dossier de votre choix :
+### Cloner le dépôt
+
+Pour procéder au clonage du repositotry GitHUB, ouvrez votre terminal préféré et exécuter l'instruction suivante dans le dossier de votre choix :
+
 ```bash
 git clone https://github.com/william94240/LITRevu.git
 ```
-Ensuite déplacez-vous dans le dossier créé par le clonage nommé `LITRevu` avec la commande :
+
+Ensuite positionnez-vous dans le dossier créé par le clonage nommé `LITRevu`, à l'aide de la commande :
 
 ```bash
-cd
+cd < racine_du_repertoire_destination_du projet >
 ```
 
-### Créez un environnement virtuel
+### Créer un environnement virtuel
 
-Vous devez créer un environnement virtuel. Dans le cas péent, celui-ci est nommé `.env`  dans notre cas. Ajoutez un fichier `.gitignore` pour l'exclusion des fichiers qui ne seront pas suivis. Concrètement accéder à un terminal de votre choix et rendez-vous dans le dossier du dépôt local du projet, puis tapez la commande suivante :
-
+Pour observer les bonnes pratiques, un environement virtuel est requis. Par conséquent, vous devez l'implémenter. A l'occurance, celui-ci est nommé `.env`. Pensez à ajoutez un fichier `.gitignore` pour l'exclusion des fichiers qui ne seront pas pistés. Concrètement, accéder à un terminal de votre choix et rendez-vous dans le dossier du projet si vous n'y êtes pas déjà, puis tapez la commande suivante :
 
 ```bash
 python -m venv nom_de_l_environnement_virtuel
 ```
 L'environement virtuel est crée.
 
-### Activez votre environnement virtuel
+### Activer votre environnement virtuel
 
 Pour activer votre environnement virtuel, la commande est différente selon votre système d'exploitation.
 
-#### Linux:
+#### Plateforme Linux:
 ```bash
-source chemin_de_votre_env/bin/activate
+source chemin_de_votre_environement/bin/activate
 ```
-#### Windows :
+#### Plateforme Windows :
 
 ##### CMD :
 ```bash
-chemin_de_votre_env\Scripts\activate.bat
+chemin_de_votre_environement\Scripts\activate.bat
 ```
 
 ##### PowerShell :
 ```bash
-chemin_de_votre_env\Scripts\activate.ps1
+chemin_de_votre_environement\Scripts\activate.ps1
 ```
 
 ### Installation de différents packages
@@ -63,14 +65,14 @@ pip install -r requirements.txt
 
 ### Mise en route du serveur
 
-Vous devez vous situer dans le même repertoire que le script **manage.py**.
+Vous devez vous situer dans le même repertoire que le script **manage.py**. ce fichier est votre boussole.
 Pour pouvoir lancer le serveur afin de pouvoir afficher le site web, exécutez la commande suivante :
 
 ```bash
 python manage.py runserver
 ```
 
-Le terminal de commande affiche le message suivant :
+Le terminal affiche les informations suivantes :
 ```Watching for file changes with StatReloader
 Performing system checks...
 
@@ -81,10 +83,10 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
 
-Vous avez alors deux possibilités : cliquez directement sur le lien dans le terminal,
+Deux options s'offrent à vous : cliquez directement sur le lien dans le terminal,
 ou tapez [http://127.0.0.1:8000/](http://127.0.0.1:8000/) dans votre navigateur.
 
-# Utilisation du site web
+# L'usage du site web
 
 L'application étant lancée, Créez-vous un compte ou connectez-vous avec les identifiants d'un utilisateur existant ci-dessous :
 
@@ -99,31 +101,26 @@ L'application étant lancée, Créez-vous un compte ou connectez-vous avec les i
 ### Onglet Flux
 
 Lorsque vous êtes connecté, la page de Flux est premier à se manifester.
+Sur cette page, vous avez une rivière antéchronologique de tous les tickets et critiques que vous avez postés,les tickets et les critiques postés par les utilisateurs que vous suivez, les critiques en réponse à vos tickets y figurent également.
 
-Dans cette page, vous avez une rivière antéchronologique de tous les tickets et critiques que vous avez postés. Les tickets et les critiques postés par les utilisateurs que vous suivez ainsi que les critiques en réponse à vos tickets y figurent également.
-
-Vous pourrez créer des tickets, créer des critiques à partir de zéro et des critiques en réponse à des tickets.
-
-Vous avez également la possibilité de modifier vos différents posts.
+Vous pourrez créer des tickets, créer des critiques à partir de zéro et des critiques en réponse à des tickets. Vous détenez également la possibilité de modifier vos différents posts.
 
 ### Onglet Posts
 
-Dans la page des posts, vous pourrez voir tous les tickets et critiques que vous avez postés. Sur chacun de vos posts, vous aurez la possibilité de les modifier ou de les supprimer.
+Dans la page des posts, vous pouvez observer tous les tickets et critiques que vous avez postés en propre. Sur chacun de vos posts, vous avez la main pour modifier ou supprimer vos créations.
 
-**Attention** : Si vous supprimez un ticket, toutes les critiques associées seront également supprimées.
+**Attention** : La suppression d'un ticket, conduit fatalement à la suppression de toutes les critiques associées.
 
 ### Onglet Abonnements
 
-Dans cette page, vous pouvez voir vos abonnés, vos abonnements avec la possibilité de ne plus suivre l'utilisateur ainsi qu'une barre de recherche afin de trouver des utilisateurs à suivre.
-
-En suivant un utilisateur, vous avez accès à tous ses posts.
+Sur cette page, il est question de voir les activités de vos abonnés et de créer des abonnements. La possibilité de trouver des utilisateurs à suivre à l'aide d'une liste déroulante et l'option inverse de ne plus suivre un utilisateur vous sont offertes. En suivant un utilisateur, vous avez accès à tous ses posts.
 
 ### Déconnexion
 
-Enfin, vous pourrez vous déconnecter et vous serez automatiquement redirigé vers la page de connexion.
+A la fin, losrque vous vous déconnectez, vous êtes automatiquement redirigé vers la page de connexion.
 
 # Flake8
 
-L'application a été contrôlée par Flake8. Elle est par conséquent conforme à la PEP8 et autres directives.
+L'application a été passée sous la moulinette de Flake8. Elle est par conséquent conforme à la PEP8 et à d'autres directives.
 
 ----------
