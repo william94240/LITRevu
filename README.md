@@ -84,13 +84,13 @@ Quit the server with CTRL-BREAK.
 ```
 
 Deux options s'offrent à vous : cliquez directement sur le lien dans le terminal,
-ou tapez [http://127.0.0.1:8000/](http://127.0.0.1:8000/) dans votre navigateur.
+ou tapez [http://127.0.0.1:8000/](http://127.0.0.1:8000/) dans barre d'adresse de votre navigateur.
 
 # L'usage du site web
 
 L'application étant lancée, Créez-vous un compte ou connectez-vous avec les identifiants d'un utilisateur existant ci-dessous :
 
-| Nom de compte | Mot de passe   |
+| Utilisateur   | Mot de passe   |
 | :------------ |:-------------- |
 | willema       | c1secret       |
 | wilhem        | c1secret       |
