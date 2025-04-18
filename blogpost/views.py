@@ -63,6 +63,10 @@ class TicketUpdateView(LoginRequiredMixin, UpdateView):
         """Return the URL to redirect to after processing a valid form."""
         return reverse("flux:ticket-detail", kwargs={"slug": self.object.slug})
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
+
 
 class TicketDeleteView(LoginRequiredMixin, DeleteView):
     """View for the deletion of a ticket."""
@@ -72,6 +76,10 @@ class TicketDeleteView(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         """Return the URL to redirect to after processing a valid form."""
         return reverse("flux:ticket-list")
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
 
 
 class ReviewlistView(LoginRequiredMixin, ListView):
@@ -135,6 +143,10 @@ class ReviewUpdateView(LoginRequiredMixin, UpdateView):
         return reverse("flux:ticket-review-detail",
                        kwargs={"ticket_slug": self.object.ticket.slug, "slug": self.object.slug})
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
+
 
 class ReviewDeleteView(LoginRequiredMixin, DeleteView):
     """View for the deletion of a review."""
@@ -144,6 +156,10 @@ class ReviewDeleteView(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         """Return the URL to redirect to after processing a valid form."""
         return reverse("flux:ticket-review-list", kwargs={"ticket_slug": self.object.ticket.slug})
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
 
 
 # Avec la classe CreateView
